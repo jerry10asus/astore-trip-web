@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AStore Trip - 探索全球 Apple Store</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="header-bar" id="header-bar">
+    <div class="header-content">
+      <img src="assets/logo.png" alt="AStore Trip Logo" class="header-logo" />
+      <h2 class="header-title">AStore Trip</h2>
+    </div>
+    <button class="cta-btn header-cta-btn cta-button">立即使用</button>
+  </header>
+
+  <!-- Hero 區 -->
+  <section class="hero">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="hero-content glass">
+      <img src="assets/logo.png" alt="AStore Trip Logo" class="hero-logo" />
+      <h1>探索全球 Apple Store</h1>
+      <p>在旅行中，欣賞建築設計之美</p>
+      <button class="cta-btn cta-button" id="hero-cta-btn">立即使用</button>
+    </div>
+  </section>
+
+  <!-- 主題敘事區 -->
+  <section class="about">
+    <h2>關於 AStore Trip</h2>
+    <p>
+      AStore Trip 是一款以設計與建築為靈感的旅遊 App，
+      收錄全球 Apple 直營門市資訊，讓你在旅行中探索每一座
+      城市的 Apple Store，收藏打卡並欣賞其獨特設計之美。
+    </p>
+  </section>
+
+  <!-- 功能亮點區 -->
+  <section class="features">
+    <div class="feature-image">
+      <img src="assets/01.png" alt="門市查找 UI" class="ui-image active" data-image="01" />
+      <img src="assets/02.png" alt="收藏清單 UI" class="ui-image" data-image="02" />
+      <img src="assets/03.png" alt="打卡成就 UI" class="ui-image" data-image="03" />
+    </div>
+    <div class="feature-list">
+      <div class="feature glass" data-feature="01">
+        <h3> 門市查找</h3>
+        <p>快速搜尋全球 Apple Store，查看建築資訊與地圖位置。</p>
+      </div>
+      <div class="feature glass" data-feature="02">
+        <h3>❤️ 收藏清單</h3>
+        <p>建立你的 Apple Store 收藏清單，紀錄每段旅程足跡。</p>
+      </div>
+      <div class="feature glass" data-feature="03">
+        <h3>🏅 打卡成就</h3>
+        <p>實地造訪門市後打卡，累積勳章與設計旅程成就。</p>
+      </div>
+    </div>
+    <div class="feature-indicators" id="feature-indicators">
+      <span class="indicator active" data-indicator="01"></span>
+      <span class="indicator" data-indicator="02"></span>
+      <span class="indicator" data-indicator="03"></span>
+    </div>
+  </section>
+
+  <!-- CTA 區 -->
+  <section class="cta">
+    <h2>準備好展開你的 Apple Store 之旅了嗎？</h2>
+    <button class="cta-btn cta-button">立即使用</button>
+  </section>
+
+  <!-- 頁腳區 -->
+  <footer>
+    <p>© 2026 AStore Trip — Designed by Jerry Jhang</p>
+    <p>
+      <a href="mailto:jerry10jerry10@gmail.com">聯絡我</a> ｜ 
+      <a href="https://www.instagram.com/jerry10jerry10">Instagram</a> ｜ 
+      <a href="https://buymeacoffee.com/jerryjhang">buy me a cofee</a>
+    </p>
+    <p>v0.1</p>
+  </footer>
+
+  <!-- 桌面瀏覽器提示彈窗 -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <h3>哇～請使用手機瀏覽器開啟</h3>
+      <p>為了最佳的使用體驗，目前僅支援行動裝置使用，請用手機瀏覽器開啟</p>
+      <button class="modal-close-btn" id="modal-close-btn">我知道了</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
