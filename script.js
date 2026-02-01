@@ -97,8 +97,8 @@ ctaButtons.forEach(button => {
       // 桌面瀏覽器：顯示彈窗
       showModal();
     } else {
-      // 手機瀏覽器：跳轉連結
-      window.location.href = appUrl;
+      // 手機瀏覽器：在新分頁開啟連結
+      window.open(appUrl, '_blank');
     }
   });
 });
