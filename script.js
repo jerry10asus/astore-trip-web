@@ -88,7 +88,7 @@ modalOverlay.addEventListener('click', (e) => {
 });
 
 // 處理「立即使用」按鈕點擊
-const appUrl = 'https://jerry10asus.github.io/astore-trip/';
+const appUrl = 'https://app.astoretrip.com/';
 const ctaButtons = document.querySelectorAll('.cta-button');
 
 ctaButtons.forEach(button => {
