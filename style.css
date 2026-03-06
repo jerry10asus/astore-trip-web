@@ -348,6 +348,21 @@ footer a:hover {
   color: #666;
 }
 
+.modal-qrcode {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-qrcode img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .modal-close-btn {
   background-color: #000;
   color: #fff;
