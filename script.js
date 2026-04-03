@@ -61,6 +61,60 @@ window.addEventListener('scroll', checkHeaderVisibility);
 // 初始檢查
 checkHeaderVisibility();
 
+// 語言切換（地球下拉，header-bar 與 hero 可多組）
+(function initLangSwitch() {
+  const switches = document.querySelectorAll('.lang-switch');
+  if (!switches.length) return;
+
+  function closeAll() {
+    switches.forEach((wrap) => {
+      const btn = wrap.querySelector('.lang-switch-btn');
+      const menu = wrap.querySelector('.lang-switch-menu');
+      if (menu) menu.hidden = true;
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  switches.forEach((wrap) => {
+    const btn = wrap.querySelector('.lang-switch-btn');
+    const menu = wrap.querySelector('.lang-switch-menu');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const opening = menu.hidden;
+      closeAll();
+      if (opening) {
+        menu.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    menu.addEventListener('click', (e) => e.stopPropagation());
+  });
+
+  document.addEventListener('click', closeAll);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
+  });
+})();
+
+// 語言選單：記住使用者選擇，避免之後被瀏覽器語言自動導向覆蓋
+(function initLangPreferenceStorage() {
+  const STORAGE_KEY = 'astore-trip-lang';
+  document.querySelectorAll('a.lang-switch-item').forEach((a) => {
+    a.addEventListener('click', () => {
+      const href = a.getAttribute('href') || '';
+      if (href.includes('index_en')) {
+        localStorage.setItem(STORAGE_KEY, 'en');
+      } else {
+        localStorage.setItem(STORAGE_KEY, 'zh');
+      }
+    });
+  });
+})();
+
 // 檢測是否為桌面瀏覽器
 function isDesktopBrowser() {
   const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -87,18 +141,21 @@ modalOverlay.addEventListener('click', (e) => {
   }
 });
 
-// 處理「立即使用」按鈕點擊
-const appUrl = 'https://app.astoretrip.com/';
+// 處理「立即使用 / Get Started」按鈕點擊
+const appUrlZh = 'https://app.astoretrip.com/';
+const appUrlEn = 'https://en.astoretrip.com/';
+const isEnglishLandingPage = /index_en\.html$/i.test(location.pathname);
+
 const ctaButtons = document.querySelectorAll('.cta-button');
 
 ctaButtons.forEach(button => {
   button.addEventListener('click', () => {
     if (isDesktopBrowser()) {
-      // 桌面瀏覽器：顯示彈窗
+      // 桌面瀏覽器：顯示「請用手機開啟」彈窗（中英文落地頁皆有）
       showModal();
     } else {
-      // 手機瀏覽器：在新分頁開啟連結
-      window.open(appUrl, '_blank');
+      // 手機瀏覽器：在新分頁開啟對應語系網址
+      window.open(isEnglishLandingPage ? appUrlEn : appUrlZh, '_blank');
     }
   });
 });
